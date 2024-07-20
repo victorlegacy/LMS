@@ -1,23 +1,37 @@
 <?php
-  session_start();
-  if(isset($_SESSION['user'])){
+session_start();
+if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
     include('config.php');
-  }else{
-    header('Location:login.php');
-  }
-  $sql = "SELECT * FROM admin WHERE username = '$user'";
-  $rn = mysqli_query($conn,$sql);
-  $admin = mysqli_fetch_all($rn,MYSQLI_ASSOC);
-  $phone = $admin[0]['phone'];
-  
+} else {
+    header('Location: login.php');
+    exit();
+}
+
+// Fetch user details
+$sql = "SELECT * FROM users WHERE username = '$user'";
+$rn = mysqli_query($conn, $sql);
+
+if (!$rn) {
+    die("Query failed: " . mysqli_error($conn));
+}
+
+$user_details = mysqli_fetch_all($rn, MYSQLI_ASSOC);
+
+if (empty($user_details)) {
+  header('Location: login.php');
+}
+
+$role = $user_details[0]['role'];
+$full_name = $user_details[0]['first_name'] . ' ' . $user_details[0]['last_name'];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ProStore Inventory</title>
+    <title>LMS Dashboard</title>
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -26,7 +40,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-	  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <style>
       input::placeholder{
         color:grey !important;
@@ -49,11 +63,13 @@
             <span class="mdi mdi-menu"></span>
           </button>
           <ul class="navbar-nav navbar-nav-right">
-            <button class="btn bg-white  p-3 d-flex align-items-center" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-calendar mr-1"></i><?php echo date('F j, Y, g:i a') ?> </button>
+            <button class="btn bg-white p-3 d-flex align-items-center" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="mdi mdi-calendar mr-1"></i><?php echo date('F j, Y, g:i a') ?>
+            </button>
                    
             <li class="nav-item dropdown">
               <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                <i class="mdi mdi-bell-outline" ></i>
+                <i class="mdi mdi-bell-outline"></i>
                 <span class="count-symbol bg-danger"></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
@@ -66,8 +82,8 @@
                     </div>
                   </div>
                   <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
-                    <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today </p>
+                    <h6 class="preview-subject font-weight-normal mb-1">Upcoming Assignment</h6>
+                    <p class="text-gray ellipsis mb-0"> You have an assignment due soon </p>
                   </div>
                 </a>
                 <div class="dropdown-divider"></div>
@@ -86,44 +102,50 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <br><br>
-            
-          <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link">
                 <span class="icon-bg"><i class="mdi mdi-account"></i></span>
-                <span class="menu-title">Welcome, <?php echo $user ?></span>
+                <span class="menu-title">Welcome, <?php echo $full_name ?></span>
               </a>
             </li>
             
-            <!-- <li class="nav-item nav-category">Main</li> -->
             <hr style="color: grey;">
             <li class="nav-item">
               <a class="nav-link" href="index.php">
-                <span class="icon-bg"><i class="mdi mdi-cube menu-icon" style="color:#F76400"></i></span>
-                <span class="menu-title">Home</span>
+                <span class="icon-bg"><i class="mdi mdi-home menu-icon" style="color:#F76400"></i></span>
+                <span class="menu-title">Dashboard</span>
               </a>
             </li>
+            <?php if ($role === 'Instructor' || $role === 'Admin') { ?>
+              <li class="nav-item">
+                <a class="nav-link" href="add_course.php">
+                  <span class="icon-bg"><i class="mdi mdi-plus menu-icon" style="color:#F76400"></i></span>
+                  <span class="menu-title">Add Course</span>
+                </a>
+              </li>
+            <?php } ?>
             <li class="nav-item">
-              <a class="nav-link" href="add.php">
-                <span class="icon-bg"><i class="mdi mdi-plus menu-icon" style="color:#F76400"></i></span>
-                <span class="menu-title">Add Product</span>
-              </a>
-            </li>
-  
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <a class="nav-link" data-toggle="collapse" href="#course-view" aria-expanded="false" aria-controls="course-view">
                 <span class="icon-bg"><i class="mdi mdi-format-list-bulleted-type menu-icon" style="color:#F76400"></i></span>
-                <span class="menu-title">View Products</span>
+                <span class="menu-title">Courses</span>
                 <i class="menu-arrow"></i>
               </a>
-              <div class="collapse" id="ui-basic">
+              <div class="collapse" id="course-view">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="product.php">All Products </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="expired.php">Expired Products</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="view_courses.php">All Courses</a></li>
+                  <?php if ($role === 'Admin') { ?>
+                    <li class="nav-item"> <a class="nav-link" href="archived_courses.php">Archived Courses</a></li>
+                  <?php } ?>
                 </ul>
               </div>
             </li>
-           
-            <li class="nav-item documentation-link">
+            <li class="nav-item">
+              <a class="nav-link" href="profile.php">
+                <span class="icon-bg"><i class="mdi mdi-account-circle menu-icon" style="color:#F76400"></i></span>
+                <span class="menu-title">Profile</span>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" onclick="logout()">
                 <span class="icon-bg">
                   <i class="mdi mdi-lock menu-icon"></i>
@@ -131,12 +153,6 @@
                 <span class="menu-title">Logout</span>
               </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="create.php" >
-                  <span class="icon-bg"><i class="mdi mdi-account-plus"></i></span>
-                  <span class="menu-title">Create an account </span>
-                  
-                </a>
           </ul>
         </nav>
         <!-- partial -->
@@ -152,18 +168,15 @@
                       Toastify({
                       text: "Logging Out...",
                       duration: 1000,
-                      // destination: "https://github.com/apvarun/toastify-js",
                       newWindow: true,
                       close: true,
-                      gravity: "bottom", // `top` or `bottom`
-                      position: "center", // `left`, `center` or `right`
-                      stopOnFocus: true, // Prevents dismissing of toast on hover
+                      gravity: "bottom",
+                      position: "center",
+                      stopOnFocus: true,
                       style: {
                       background: "#F76400",
                       },
-                      onClick: function(){
-                          // window.location = 'cart.php';
-                      } // Callback after click
+                      onClick: function(){}
                       }).showToast();  
                        setTimeout(function(){window.location = 'login.php'},1500)
                   }

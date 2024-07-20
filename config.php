@@ -1,8 +1,11 @@
-
 <?php
-$conn = mysqli_connect('193.203.166.21','u727832680_userlms','B@Fz9NNj2','u727832680_lms');
-if(!$conn){
-	echo "not connected";
+$hostName = "localhost";
+$dbuser = "root";
+$dbPassword = "";
+$dbName = "LMC";
+$conn = mysqli_connect($hostName,$dbuser,$dbPassword ,$dbName);
+if (!$conn){
+    die("somthing went wrong;");
 }
-?>  
-  
+
+?>
