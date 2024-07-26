@@ -12,8 +12,10 @@ $run = mysqli_query($conn, $sql);
 if (mysqli_num_rows($run) > 0) {
     $user = mysqli_fetch_assoc($run);
     // Verify password
-    if (password_verify($password, $user['password'])) {
+    if ($password == $user['password']) {
         echo 1; // Successful login
+        session_start();
+        $_SESSION['user'] = $user['username'];
     } else {
         echo 2; // Invalid password
     }
