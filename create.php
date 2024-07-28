@@ -52,13 +52,6 @@
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password">
                                 </div>
-                                <div class="mb-4">
-                                    <div class="form-check">
-                                        <label class="form-check-label text-muted">
-                                            <input required type="checkbox" class="form-check-input"> I agree to all Terms & Conditions
-                                        </label>
-                                    </div>
-                                </div>
                                 <div class="mt-3">
                                     <button type="button" onclick="create()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
                                 </div>
