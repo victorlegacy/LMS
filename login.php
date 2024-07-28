@@ -28,7 +28,8 @@
               <div class="auth-form-light text-left p-5">
                 <div class="brand-logo">
                 <img src="assets/images/logo-full.png" alt="logo" />
-                <br>
+                <br><br>
+               <b>boost your learning experience</b> 
                 </div>
       <hr>
                 <h6 class="font-weight-light">Input Details to Continue</h6>
