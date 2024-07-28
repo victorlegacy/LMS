@@ -28,7 +28,6 @@
                         <div class="auth-form-light text-left p-5">
                             <div class="brand-logo">
                                 <img src="assets/images/logo-full.png" alt="logo" /><br>
-                                <b>Learning Management System</b>
                             </div>
                             <hr>
                             <h6 class="font-weight-light">Input Details to Create Account</h6>
@@ -39,9 +38,6 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-lg" id="lastname" name="lastname" required placeholder="Last Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" id="username" name="username" required placeholder="Username">
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-lg" id="email" name="email" required placeholder="Student Email">
