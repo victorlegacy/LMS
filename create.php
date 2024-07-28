@@ -17,6 +17,9 @@
       input::placeholder {
         color: grey !important;
       }
+      .content-wrapper{
+        background-color: #10001F !important;
+      }
     </style>
 </head>
 <body>
@@ -27,7 +30,8 @@
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left p-5">
                             <div class="brand-logo">
-                                <img src="assets/images/logo-full.png" alt="logo" /><br>
+                                <img src="assets/images/logo-full.png" alt="logo" /><br><br>
+                                <b>boost your learning experience</b>
                             </div>
                             <hr>
                             <h6 class="font-weight-light">Input Details to Create Account</h6>
