@@ -17,6 +17,9 @@
       input::placeholder{
         color:grey !important;
       }
+      .content-wrapper{
+        background-color: #10001F !important;
+      }
     </style>
   </head>
   <body>
@@ -29,14 +32,14 @@
                 <div class="brand-logo">
                 <img src="assets/images/logo-full.png" alt="logo" />
                 <br>
-               <b>Inventory Management System</b> 
+               <b>Boost your learning experience</b> 
                 </div>
       <hr>
                 <h6 class="font-weight-light">Input Details to Continue</h6>
                 <p id="error" class=" bg-danger text-white"></p>
                 <form class="pt-3">
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="username" placeholder="Username">
+                    <input type="text" class="form-control form-control-lg" id="matric" placeholder="Matric No.">
                   </div>
                    
                   <div class="form-group">

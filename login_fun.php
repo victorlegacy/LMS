@@ -2,11 +2,11 @@
 include('config.php');
 
 // Get data from request
-$username = mysqli_real_escape_string($conn, $_GET['username']);
+$username = mysqli_real_escape_string($conn, $_GET['matric']);
 $password = mysqli_real_escape_string($conn, $_GET['password']);
 
 // Query to fetch user data
-$sql = "SELECT * FROM admin WHERE username = '$username' OR email = '$username'";
+$sql = "SELECT * FROM users WHERE matric = '$matric' OR email = '$username'";
 $run = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($run) > 0) {
