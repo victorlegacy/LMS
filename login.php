@@ -27,7 +27,7 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
                 <div class="brand-logo">
-                <img src="assets/images/logo1-alt.png" alt="logo" />
+                <img src="assets/images/logo-full.png" alt="logo" />
                 <br>
                <b>Inventory Management System</b> 
                 </div>
