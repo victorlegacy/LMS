@@ -41,9 +41,6 @@
                                     <input type="text" class="form-control form-control-lg" id="lastname" name="lastname" required placeholder="Last Name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" id="username" name="username" required placeholder="Username">
-                                </div>
-                                <div class="form-group">
                                     <input type="email" class="form-control form-control-lg" id="email" name="email" required placeholder="Student Email">
                                 </div>
                                 <div class="form-group">
