@@ -17,6 +17,9 @@
       input::placeholder {
         color: grey !important;
       }
+      .content-wrapper{
+        background-color: #10001F !important;
+      }
     </style>
 </head>
 <body>
