@@ -26,7 +26,7 @@
     </style>
 </head>
 <body>
-  
+
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
             <div class="content-wrapper d-flex align-items-center auth">
@@ -48,7 +48,7 @@
                                     <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password">
                                 </div>
                                 <div class="mt-3">
-                                    <button type="button" onclick="create()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
+                                    <button type="button" onclick="create()" class="btn btn-block btn-secondary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
                                 </div>
                                 <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="login.php" class="text-primary">Login</a></div>
                             </form>
