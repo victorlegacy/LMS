@@ -35,21 +35,19 @@
                             <p id="error" class="bg-danger text-white"></p>
                             <form id="signupForm" class="pt-3">
                                 <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg" id="firstname" name="firstname" required placeholder="First Name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg" id="lastname" name="lastname" required placeholder="Last Name">
+                                </div>
+                                <div class="form-group">
                                     <input type="text" class="form-control form-control-lg" id="username" name="username" required placeholder="Username">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-lg" id="email" name="email" required placeholder="Email">
+                                    <input type="email" class="form-control form-control-lg" id="email" name="email" required placeholder="Student Email">
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" class="form-control form-control-lg" id="phone" name="phone" required placeholder="Phone Number">
-                                </div>
-                                <div class="form-group">
-                                    <select class="form-control form-control-lg" required id="role" name="role">
-                                        <option style="color:grey" value="">Select Role</option>
-                                        <option value="student">Student</option>
-                                        <option value="instructor">Instructor</option>
-                                        <option value="admin">Admin</option>
-                                    </select>
+                                    <input type="tel" class="form-control form-control-lg" id="matricno" name="matricno" required placeholder="Matric Number">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password">
