@@ -29,7 +29,6 @@
                 <div class="brand-logo">
                 <img src="assets/images/logo-full.png" alt="logo" />
                 <br>
-               <b>Inventory Management System</b> 
                 </div>
       <hr>
                 <h6 class="font-weight-light">Input Details to Continue</h6>
