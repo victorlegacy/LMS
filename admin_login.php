@@ -48,9 +48,9 @@
                                     <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password">
                                 </div>
                                 <div class="mt-3">
-                                    <button type="button" onclick="create()" class="btn btn-block btn-secondary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
+                                    <button type="button" onclick="create()" class="btn btn-block btn-secondary btn-lg font-weight-medium auth-form-btn">LOGIN IN</button>
                                 </div>
-                                <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="login.php" class="text-primary">Login</a></div>
+                                <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="admin_create.php" class="text-primary">Signup</a></div>
                             </form>
                         </div>
                     </div>

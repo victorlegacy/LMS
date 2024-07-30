@@ -56,7 +56,7 @@
                                 <div class="mt-3">
                                     <button type="button" onclick="create()" class="btn btn-block btn-secondary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
                                 </div>
-                                <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="login.php" class="text-primary">Login</a></div>
+                                <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="admin_login.php" class="text-primary">Login</a></div>
                             </form>
                         </div>
                     </div>
