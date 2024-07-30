@@ -49,7 +49,7 @@
                               <div><i style="font-size: 40px;" class="text-light mdi mdi-format-list-bulleted-type icon-md"></i></div>
                             <hr>
                             <h4 class="mb-2 text-primary font-weight-bold">Your Active Courses</h4>
-                            <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $num_courses = 0 ?> </h2>
+                            <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $num_courses = 2 ?> </h2>
                             <hr>
                             <p class=""> Courses you have started</p>
                             <a href="coursesActive.php" class="btn btn-dark">
@@ -64,7 +64,7 @@
                             <div><i style="font-size: 40px;" class="text-light mdi mdi-check icon-md"></i></div>
                           <hr>
                           <h4 class="mb-2 text-primary font-weight-bold">Your Available Courses</h4>
-                          <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $active_courses= 0?></h2>
+                          <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $active_courses= 4?></h2>
                           <hr>
                           <p class=""> Courses ready to be started </p>
                           <a href="active_courses.php" class="btn btn-dark">
@@ -79,7 +79,7 @@
                             <div><i style="font-size: 40px;" class="text-light mdi mdi-window-close icon-md"></i></div>
                           <hr>
                           <h4 class="mb-2 text-primary font-weight-bold">Your Archived Courses</h4>
-                          <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $archived_courses= 0?></h2>
+                          <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $archived_courses= 1?></h2>
                           <hr>
                           <p class="">Courses that are placed on hold</p>
                           <a href="archived_courses.php" class="btn btn-dark">
@@ -94,7 +94,7 @@
                             <div><i style="font-size: 40px;" class="text-light mdi mdi-account icon-md"></i></div>
                           <hr>
                           <h4 class="mb-2 text-primary font-weight-bold">Your Completed Courses</h4>
-                          <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $num_instructors= 0?></h2>
+                          <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $num_instructors= 4?></h2>
                           <hr>
                           <p class="">Courses you completed successfully</p>
                           <a href="instructors.php" class="btn btn-dark">
