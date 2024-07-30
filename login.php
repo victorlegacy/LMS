@@ -35,11 +35,11 @@
                <b>boost your learning experience</b> 
                 </div>
       <hr>
-                <h6 class="font-weight-light">Input Details to Continue</h6>
+                <h6 class="font-weight-light">Input Your Details to Continue</h6>
                 <p id="error" class=" bg-danger text-white"></p>
                 <form class="pt-3">
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="matric" placeholder="Matric No.">
+                    <input type="text" class="form-control form-control-lg" id="studID" placeholder="Student ID">
                   </div>
                    
                   <div class="form-group">
@@ -68,10 +68,10 @@
     <script src="assets/js/misc.js"></script>
     <script>
     function login() {
-      var username = document.getElementById("username").value;
+      var studID = document.getElementById("studID").value;
       var pass = document.getElementById("password").value; 
-    if (username == "") {
-        document.getElementById("txtHint").innerHTML = "Please complete all fields";
+    if (studID == "") {
+        document.getElementById("error").innerHTML = "Please complete all fields";
         return;
     } else {
       
@@ -83,8 +83,9 @@
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {          
                 var res = xmlhttp.responseText;
+                console.log(res);
                 if(res == 1){
-                setTimeout(function(){window.location = 'create_ses.php?username='+username},3000)
+                setTimeout(function(){window.location = 'index.php'},3000)
                 }else if(res == 2){
                   document.getElementById('error').innerHTML = 'Password is incorrect';
                 }else{
@@ -92,7 +93,7 @@
                 }
             }
         };
-        xmlhttp.open("GET","login_fun.php?username="+username+"&&password="+pass,true);
+        xmlhttp.open("GET","login_fun.php?studID="+studID+"&&password="+pass,true);
         xmlhttp.send();
     }
     Toastify({
@@ -105,7 +106,7 @@
       position: "center", // `left`, `center` or `right`
       stopOnFocus: true, // Prevents dismissing of toast on hover
       style: {
-      background: "#F76400",
+      background: "#10001F",
       },
       onClick: function(){
           // window.location = 'cart.php';

@@ -1,7 +1,12 @@
 <?php
 session_start();
-if (isset($_SESSION['user'])) {
-    $user = $_SESSION['user'];
+if (isset($_SESSION['studID'])) {
+    $id = $_SESSION['id'];
+    $studID = $_SESSION['studID'];
+    $fName = $_SESSION['firstName'];
+    $lName = $_SESSION['lastName'];
+    $email = $_SESSION['email'];
+    $matric = $_SESSION['matric'];
     include('config.php');
 } else {
     header('Location: login.php');
@@ -9,7 +14,7 @@ if (isset($_SESSION['user'])) {
 }
 
 // Fetch user details
-$sql = "SELECT * FROM users WHERE username = '$user'";
+$sql = "SELECT * FROM student WHERE studID = '$studID'";
 $rn = mysqli_query($conn, $sql);
 
 if (!$rn) {
@@ -23,7 +28,7 @@ if (empty($user_details)) {
 }
 
 $role = $user_details[0]['role'];
-$full_name = $user_details[0]['first_name'] . ' ' . $user_details[0]['last_name'];
+$full_name = $user_details[0]['firstName'] . ' ' . $user_details[0]['lastName'];
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +36,7 @@ $full_name = $user_details[0]['first_name'] . ' ' . $user_details[0]['last_name'
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>LMS Dashboard</title>
+    <title>EDT-LMS Dashboard</title>
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -45,6 +50,16 @@ $full_name = $user_details[0]['first_name'] . ' ' . $user_details[0]['last_name'
       input::placeholder{
         color:grey !important;
       }
+      .navbar.fixed-top + .page-body-wrapper {
+    padding-top: 0px !important;
+}
+.icon-bg{
+  background-color: white !important;
+  
+}
+.menu-title{
+  color:#f0f1f6 !important;
+}
     </style>
   </head>
   <body>
@@ -52,7 +67,7 @@ $full_name = $user_details[0]['first_name'] . ' ' . $user_details[0]['last_name'
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
           <a class="navbar-brand brand-logo px-4" style="text-align:left" href="index.php">
-            <img src="assets/images/logo-dark.png" style="width: 150px !important;height:20px" alt="logo" />
+            <img src="assets/images/logo-dark.png" style="width: 150px !important;height:40px" alt="logo" />
           </a>
           <a class="navbar-brand brand-logo-mini" href="index.php">
             <img src="assets/images/favicon.png" alt="logo" />
@@ -83,7 +98,7 @@ $full_name = $user_details[0]['first_name'] . ' ' . $user_details[0]['last_name'
                   </div>
                   <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
                     <h6 class="preview-subject font-weight-normal mb-1">Upcoming Assignment</h6>
-                    <p class="text-gray ellipsis mb-0"> You have an assignment due soon </p>
+                    <p class="text-gray ellipsis mb-0"> ED 215 have been added to your courses by your  </p>
                   </div>
                 </a>
                 <div class="dropdown-divider"></div>
@@ -101,54 +116,69 @@ $full_name = $user_details[0]['first_name'] . ' ' . $user_details[0]['last_name'
         <!-- partial:partials/_sidebar.php -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
-            <br><br>
-            <li class="nav-item">
-              <a class="nav-link">
-                <span class="icon-bg"><i class="mdi mdi-account"></i></span>
-                <span class="menu-title">Welcome, <?php echo $full_name ?></span>
-              </a>
+            <li class="nav-item " style="border-bottom: 2px solid grey;">
+            <div class="mt-5" style="text-align: left;" >
+                                    <img src="assets/images/faces/1.jpg" style="border:#AE07BD solid 2px;border-radius: 50%;" width="100px" alt="Face 1">
+                                    <br><br>
+                                <span class="text-light"> Welcome, <?php echo $fName ?> </span>
+                                <br>
+                                <span class="">
+                                  <?php ?>
+                                </span>
+                                <br>
+                                </div>
+                                
             </li>
-            
-            <hr style="color: grey;">
-            <li class="nav-item">
+          
+            <br><br>
+            <!-- <li class="nav-item" style="border-top: 2px solid white;padding-top:10px">
+              <a class="nav-link">
+                <span class="icon-bg" style="color:#AE07BD"><i class="mdi mdi-account"></i></span>
+                <span class="menu-title" style="color:white">Welcome, <?php echo $fName ?></span>
+              </a>
+            </li> -->
+            <li class="nav-item" >
               <a class="nav-link" href="index.php">
-                <span class="icon-bg"><i class="mdi mdi-home menu-icon" style="color:#F76400"></i></span>
+                <span class="icon-bg"><i class="mdi mdi-home menu-icon" style="color:#AE07BD"></i></span>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
             <?php if ($role === 'Instructor' || $role === 'Admin') { ?>
               <li class="nav-item">
                 <a class="nav-link" href="add_course.php">
-                  <span class="icon-bg"><i class="mdi mdi-plus menu-icon" style="color:#F76400"></i></span>
+                  <span class="icon-bg"><i class="mdi mdi-plus menu-icon" style="color:#AE07BD"></i></span>
                   <span class="menu-title">Add Course</span>
                 </a>
               </li>
             <?php } ?>
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#course-view" aria-expanded="false" aria-controls="course-view">
-                <span class="icon-bg"><i class="mdi mdi-format-list-bulleted-type menu-icon" style="color:#F76400"></i></span>
+                <span class="icon-bg"><i class="mdi mdi-format-list-bulleted-type menu-icon" style="color:#AE07BD"></i></span>
                 <span class="menu-title">Courses</span>
                 <i class="menu-arrow"></i>
               </a>
               <div class="collapse" id="course-view">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="view_courses.php">All Courses</a></li>
-                  <?php if ($role === 'Admin') { ?>
-                    <li class="nav-item"> <a class="nav-link" href="archived_courses.php">Archived Courses</a></li>
-                  <?php } ?>
+                <li class="nav-item"> <a class="nav-link" href="view_courses.php">Active Courses</a></li>
+                <li class="nav-item"> <a class="nav-link" href="view_courses.php">Available Courses</a></li>
+                <li class="nav-item"> <a class="nav-link" href="view_courses.php">Archived Courses</a></li>
+                
+
+                  <li class="nav-item"> <a class="nav-link" href="view_courses.php">Completed Courses</a></li>
+                  
                 </ul>
               </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="profile.php">
-                <span class="icon-bg"><i class="mdi mdi-account-circle menu-icon" style="color:#F76400"></i></span>
+                <span class="icon-bg"><i class="mdi mdi-account-circle menu-icon" style="color:#AE07BD"></i></span>
                 <span class="menu-title">Profile</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" onclick="logout()">
                 <span class="icon-bg">
-                  <i class="mdi mdi-lock menu-icon"></i>
+                  <i class="mdi mdi-lock menu-icon" style="color:#AE07BD"></i>
                 </span>
                 <span class="menu-title">Logout</span>
               </a>

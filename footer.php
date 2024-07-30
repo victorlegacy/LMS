@@ -2,8 +2,8 @@
           <footer class="footer">
             <div class="footer-inner-wraper">
               <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-dark d-block text-center text-sm-left d-sm-inline-block">Copyright © 2023</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">From  <a href="https://www.legacysolutions.tech" class="text-dark" target="_blank">Legacy Tech</a> </span>
+                <span class="text-dark d-block text-center text-sm-left d-sm-inline-block"></span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2024</a> </span>
               </div>
             </div>
           </footer>
