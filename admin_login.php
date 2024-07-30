@@ -34,11 +34,11 @@
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left p-5">
                             <div class="brand-logo">
-                                <img src="assets/images/logo-full-alt.png" alt="logo" /><br><br>
+                                <img src="assets/images/favicon-1.png" alt="logo" /><br><br>
                                 <b>boost your learning experience</b>
                             </div>
                             <hr>
-                            <h6 class="font-weight-light">Input Details to Create Account</h6>
+                            <h6 class="font-weight-light">Input Details to login as ADMIN</h6>
                             <p id="error" class="bg-danger text-white"></p>
                             <form id="signupForm" class="pt-3">
                                 <div class="form-group">

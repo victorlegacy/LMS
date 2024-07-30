@@ -159,9 +159,9 @@ $full_name = $user_details[0]['firstName'] . ' ' . $user_details[0]['lastName'];
               </a>
               <div class="collapse" id="course-view">
                 <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="view_courses.php">Active Courses</a></li>
-                <li class="nav-item"> <a class="nav-link" href="view_courses.php">Available Courses</a></li>
-                <li class="nav-item"> <a class="nav-link" href="view_courses.php">Archived Courses</a></li>
+                <li class="nav-item"> <a class="nav-link" href="coursesActive.php">Active Courses</a></li>
+                <li class="nav-item"> <a class="nav-link" href="coursesAvailable.php">Available Courses</a></li>
+                <li class="nav-item"> <a class="nav-link" href="coursesArchived.php">Archived Courses</a></li>
                 
 
                   <li class="nav-item"> <a class="nav-link" href="view_courses.php">Completed Courses</a></li>

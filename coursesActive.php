@@ -23,7 +23,7 @@ include('header.php')
               </div>
             </div><br><br>
             <div class="d-xl-flex justify-content-between align-items-start">
-              <h2 class="text-dark font-weight-bold mb-2"><i style="font-size: 20px;" class="text-secondary mdi mdi-book-open-variant icon-md"></i> COURSES </h2>
+              <h2 class="text-dark font-weight-bold mb-2"><i style="font-size: 20px;" class="text-secondary mdi mdi-book-open-variant icon-md"></i> ACTIVE COURSES </h2>
               <div class="d-sm-flex justify-content-xl-between align-items-center mb-2">
                 <div class="dropdown ml-0 ml-md-4 mt-2 mt-lg-0">
                 </div>
@@ -42,9 +42,9 @@ include('header.php')
                               <div class="mb-3"><i style="font-size: 40px;" class="text-light mdi mdi-book-open-variant icon-md"></i></div>
 
                               <h5 class="text-primary">
-                               <b class="font-weight-bold"> EDT 322 </b>
+                               <b class="font-weight-bold"> EDT 225 </b>
                                 <br> 
-                                Data Structures 
+                                Course Title
                               </h5>
                              
                             <hr>
@@ -68,9 +68,9 @@ include('header.php')
                               <div class="mb-3"><i style="font-size: 40px;" class="text-light mdi mdi-book-open-variant icon-md"></i></div>
 
                               <h5 class="text-primary">
-                               <b class="font-weight-bold"> EDT 425 </b>
+                               <b class="font-weight-bold"> EDT 322 </b>
                                 <br> 
-                                Data Structures 
+                                Course Title
                               </h5>
                              
                             <hr>
@@ -80,7 +80,7 @@ include('header.php')
                             </a>
     <br><br>
                             Recommended by
-                            <label for="" class="text-secondary">AI</label>
+                            <label for="" class="text-secondary">Lecturer</label>
                             <hr>
                             <span class="icon-bg" style="background-color: #f0f1f6 !important;font-size:22px;padding:5px;border-radius:4px">
                             <i class="mdi mdi-arrow-right" style="color:#AE07BD"></i>
@@ -88,19 +88,30 @@ include('header.php')
                           </div>
                         </div>
                       </div>
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
+                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin">
                         <div class="card">
                           <div class="card-body text-center">
-                            <div><i style="font-size: 40px;" class="text-light mdi mdi-account icon-md"></i></div>
-                          <hr>
-                          <h4 class="mb-2 text-primary font-weight-bold">Your Completed Courses</h4>
-                          <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $num_instructors= 0?></h2>
-                          <hr>
-                          <p class="">Courses you completed successfully</p>
-                          <a href="instructors.php" class="btn btn-dark">
-                          VIEW COURSES
-                          </a>
-                        </div>
+                              <div class="mb-3"><i style="font-size: 40px;" class="text-light mdi mdi-book-open-variant icon-md"></i></div>
+
+                              <h5 class="text-primary">
+                               <b class="font-weight-bold"> EDT 512 </b>
+                                <br> 
+                                Course Title
+                              </h5>
+                             
+                            <hr>
+                            <progress max="100" value="91"></progress>
+                            <a href="courses.php" class="btn btn-dark">
+                              <i class="mdi mdi-play"></i> CONTINUE
+                            </a>
+    <br><br>
+                            Recommended by
+                            <label for="" class="text-secondary">Lecturer</label>
+                            <hr>
+                            <span class="icon-bg" style="background-color: #f0f1f6 !important;font-size:22px;padding:5px;border-radius:4px">
+                            <i class="mdi mdi-arrow-right" style="color:#AE07BD"></i>
+                            <i class="mdi mdi-folder  " style="color:#AE07BD"></i></span>
+                          </div>
                         </div>
                       </div>
                     </div>
