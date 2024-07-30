@@ -164,7 +164,7 @@ $full_name = $user_details[0]['firstName'] . ' ' . $user_details[0]['lastName'];
                 <li class="nav-item"> <a class="nav-link" href="coursesArchived.php">Archived Courses</a></li>
                 
 
-                  <li class="nav-item"> <a class="nav-link" href="view_courses.php">Completed Courses</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="coursesCompleted.php">Completed Courses</a></li>
                   
                 </ul>
               </div>
