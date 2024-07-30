@@ -2,11 +2,11 @@
 include('config.php');
 
 // Get data from request
-$username = mysqli_real_escape_string($conn, $_GET['matric']);
+$studID = mysqli_real_escape_string($conn, $_GET['studID']);
 $password = mysqli_real_escape_string($conn, $_GET['password']);
 
 // Query to fetch user data
-$sql = "SELECT * FROM users WHERE matric = '$matric' OR email = '$username'";
+$sql = "SELECT * FROM student WHERE studID = '$studID'";
 $run = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($run) > 0) {
@@ -15,12 +15,17 @@ if (mysqli_num_rows($run) > 0) {
     if ($password == $user['password']) {
         echo 1; // Successful login
         session_start();
-        $_SESSION['user'] = $user['username'];
+        $_SESSION['studID'] = $user['studID'];
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['matric'] = $user['matric'];
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['firstName'] = $user['firstName'];
+        $_SESSION['lastName'] = $user['lastName'];
     } else {
         echo 2; // Invalid password
     }
 } else {
-    echo 0; // User not found
+    echo 3; // User not found
 }
 
 // Close connection

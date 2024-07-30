@@ -15,7 +15,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <style>
       input::placeholder {
-        color: grey !important;
+        color: grey !important; 
       }
       .content-wrapper{
         background-color: #10001F !important;
