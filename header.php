@@ -78,9 +78,30 @@ $full_name = $user_details[0]['firstName'] . ' ' . $user_details[0]['lastName'];
             <span class="mdi mdi-menu"></span>
           </button>
           <ul class="navbar-nav navbar-nav-right">
-            <button class="btn bg-white p-3 d-flex align-items-center" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="mdi mdi-calendar mr-1"></i><?php echo date('F j, Y, g:i a') ?>
-            </button>
+          <button class="btn bg-white p-3 d-flex align-items-center" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="mdi mdi-calendar mr-1"></i><span id="currentTime"><?php echo date('F j, Y, g:i:s a') ?></span>
+          </button>
+
+          <script>
+          function updateTime() {
+              const now = new Date();
+              const options = { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric', 
+                  hour: 'numeric', 
+                  minute: 'numeric', 
+                  second: 'numeric', 
+                  hour12: true 
+              };
+              const formattedDate = now.toLocaleString('en-US', options);
+              document.getElementById('currentTime').textContent = formattedDate;
+          }
+
+          // Update time immediately and then every 1 seconds
+          updateTime();
+          setInterval(updateTime, 1000);
+          </script>
                    
             <li class="nav-item dropdown">
               <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
