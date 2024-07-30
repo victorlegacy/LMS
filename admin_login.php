@@ -42,16 +42,10 @@
                             <p id="error" class="bg-danger text-white"></p>
                             <form id="signupForm" class="pt-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" id="username" name="username" required placeholder="Email">
-                                </div>
-                                <div class="form-group">
                                     <input type="text" class="form-control form-control-lg" id="username" name="username" required placeholder="Username">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Confirm Password">
                                 </div>
                                 <div class="mt-3">
                                     <button type="button" onclick="create()" class="btn btn-block btn-secondary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
