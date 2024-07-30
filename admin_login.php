@@ -34,29 +34,23 @@
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left p-5">
                             <div class="brand-logo">
-                                <img src="assets/images/favicon-1.png" alt="logo" /><br><br>
-                                <b>CREATE AN ADMIN </b>
+                                <img src="assets/images/logo-full-alt.png" alt="logo" /><br><br>
+                                <b>boost your learning experience</b>
                             </div>
                             <hr>
                             <h6 class="font-weight-light">Input Details to Create Account</h6>
                             <p id="error" class="bg-danger text-white"></p>
                             <form id="signupForm" class="pt-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" id="username" name="username" required placeholder="Email">
-                                </div>
-                                <div class="form-group">
                                     <input type="text" class="form-control form-control-lg" id="username" name="username" required placeholder="Username">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password">
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Confirm Password">
-                                </div>
                                 <div class="mt-3">
-                                    <button type="button" onclick="create()" class="btn btn-block btn-secondary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
+                                    <button type="button" onclick="create()" class="btn btn-block btn-secondary btn-lg font-weight-medium auth-form-btn">LOGIN IN</button>
                                 </div>
-                                <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="admin_login.php" class="text-primary">Login</a></div>
+                                <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="admin_create.php" class="text-primary">Signup</a></div>
                             </form>
                         </div>
                     </div>
