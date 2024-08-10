@@ -51,7 +51,7 @@ $full_name = $user_details[0]['firstName'] . ' ' . $user_details[0]['lastName'];
         color:grey !important;
       }
       .navbar.fixed-top + .page-body-wrapper {
-    padding-top: 0px !important;
+    padding-top: 50px !important;
 }
 .icon-bg{
   background-color: white !important;

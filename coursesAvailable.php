@@ -51,7 +51,7 @@ include('header.php')
                              
                             <hr>
                                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore obcaecati reprehenderit commodi? Necessitatibus atque</p> <br>
-                            <a href="courses.php" class="btn btn-dark w-100">
+                            <a href="courses/EDT225.pdf" ta class="btn btn-dark w-100">
                               <i class="mdi mdi-play"></i> START
                             </a>
                             <br>
