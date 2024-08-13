@@ -51,6 +51,7 @@ $student = mysqli_fetch_all($rn,MYSQLI_ASSOC);
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <style>
+     
       input::placeholder{
         color:grey !important;
       }
@@ -116,11 +117,11 @@ $student = mysqli_fetch_all($rn,MYSQLI_ASSOC);
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.php -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <nav class="sidebar sidebar-offcanvas sidebar-right" id="sidebar">
           <ul class="nav">
             <li class="nav-item " style="border-bottom: 2px solid grey;">
             <div class="mt-5" style="text-align: left;" >
-                                    <img src="assets/100.png" style="border-radius: 50%;" width="100px" alt="Face 1">
+                                    <img src="assets/images/<?php echo $level?>.png" style="border-radius: 50%;" width="100px" alt="Face 1">
                                     <br><br>
                                 <span class="text-light"> <?php echo $username ?> </span>
                                 <br>

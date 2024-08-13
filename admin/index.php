@@ -33,7 +33,7 @@
                             <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $numCourses ?> </h2>
                             <hr>
                             <p class=""></p>
-                            <a href="coursesActive.php" class="btn btn-dark">
+                            <a href="addCourse.php" class="btn btn-dark">
                               VIEW COURSES 
                             </a>
                           </div>
@@ -48,7 +48,7 @@
                           <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $numStudent?></h2>
                           <hr>
            
-                          <a href="coursesAvailable.php" class="btn btn-dark">
+                          <a href="students.php" class="btn btn-dark">
                           VIEW STUDENTS
                           </a>
                         </div>

@@ -28,7 +28,7 @@
                    
                 </div>
                 <div class="row">
-                  <div class="col-md-8 grid-margin stretch-card">
+                  <div class="col-md-6 grid-margin stretch-card">
                     <div class="card">
                       <div class="card-body">
 <!--                        
@@ -40,29 +40,47 @@
                           </div>
                           <div class="form-group">
                             <label for="name">Course Name</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder=" ">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Full Course Name">
                           </div>
  
                           <div class="form-group">
-                          <label for="exampleInputshelf">Inventory Days </label>
-                            <input type="range" step="1" name="days" id="rangeInput" value="1" max="30" class="form-control">
-                            <p id="rangeValue"></p>
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleInputPassword1">Product Price</label>
-                            <input type="number" name="price" class="form-control" id="price" min="0" placeholder="">
+                            <label for="exampleInputPassword1">Course Description</label>
+                            <textarea  name="descrip" class="form-control" id="descrip"></textarea>
                            
                           </div>
                           <div class="form-group">
-                            <label for="file">Product Image</label>
+                            <label for="file">Course Upload(PDF)</label>
                             <input type="file" name="pic" class="form-control" id="file">
                           </div>
-                          
-                          <button type="submit" name="submit" class="w-100 btn btn-large btn-primary mr-2 ">Add Product</button>
+                          * Course Code Must Match PDF name
+                          <hr>
+                          <input type="hidden" name="level" value="<?php echo $level?>">
+                          <button type="submit" name="submit" class="w-100 btn btn-large btn-primary mr-2 ">Add Course</button>
                         
                         </form>
                       </div>
                     </div>
+                  </div>
+                  <div class="col-md-6">
+                    <h4>Available Courses</h4>
+                    <?php 
+                      foreach($courses as $course){
+                    ?>
+                    <div class="card mb-3 p-3">
+                      <div class="row">
+                        <div class="col-3"><b><?php echo $course['courseCode'] ?></b></div>
+                        <div class="col-6"><?php echo $course['courseName'] ?></div>
+                        <div class="col-3">
+                          <a href="../courses/<?php echo $course['courseCode'] ?>.pdf" target="_blank" class="btn btn-primary">
+                            <i class="mdi mdi-download"></i>
+                          </a>
+                          <a href="../courses/<?php echo $course['courseCode'] ?>.pdf" target="_blank" class="btn btn-danger">
+                            <i class="mdi mdi-window-close"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <?php } ?>
                   </div>
                   </div>
 

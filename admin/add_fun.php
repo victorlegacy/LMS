@@ -3,12 +3,11 @@
 <?php
     include('config.php');
     if(isset($_POST['submit'])){
+        $code = $_POST['code'];
         $name = $_POST['name'];
-        $cat = $_POST['cat'];
-        $days = $_POST['days'];
-        $price = $_POST['price'];
-        $timestamp = time();
-        $sql = "INSERT INTO product(name,category,price,inv_days,rem_days,stamp) VALUES('$name','$cat','$price','$days','$days','$timestamp')";
+        $descrip = $_POST['descrip'];
+        $level = $_POST['level'];
+        $sql = "INSERT INTO courses(courseName,courseCode,courseDesc,level) VALUES('$name','$code','$descrip','$level')";
         mysqli_query($conn,$sql);
         $id = mysqli_insert_id($conn);
         $img_name = $_FILES['pic']['name'];
@@ -16,18 +15,18 @@
         $temp_name = $_FILES['pic']['tmp_name'];
         $error = $_FILES['pic']['error'];
         if($error == 0){
-        if ($img_size>300000000000) {
-            $error = "Picture is larger than 3mb, please use another picture";
+        if ($img_size>3000000000000000) {
+            $error = "File is larger than 3mb, please use another picture";
         }else{
-        $img_ex_lc = 'jpg';
+        $img_ex_lc = 'pdf';
         echo "<br />";
-        $img_upload_path= "product/$id.jpg";
+        $img_upload_path= "../courses/$code.pdf";
         $run = move_uploaded_file($temp_name, $img_upload_path);
             if(isset($run)){
         ?>
         <script>
         Toastify({
-            text: "Added to products",
+            text: "Added to Courses",
             duration: 1000,
             // destination: "https://github.com/apvarun/toastify-js",
             newWindow: true,
@@ -36,13 +35,13 @@
             position: "center", // `left`, `center` or `right`
             stopOnFocus: true, // Prevents dismissing of toast on hover
             style: {
-            background: "#F76400",
+            background: "#AE07BD",
             },
             onClick: function(){
                 // window.location = 'cart.php';
             } // Callback after click
             }).showToast();  
-            setTimeout(function(){window.location = 'add.php'},1200)
+            setTimeout(function(){window.location = 'addCourse.php'},1200)
         </script> 
             <?php }
             }
