@@ -1,11 +1,6 @@
 <?php 
   include('header.php');
-  $sql = "SELECT * FROM courses";
-  $num_courses = mysqli_num_rows(mysqli_query($conn,$sql));
-  $run = mysqli_query($conn,$sql);
-  $courses = mysqli_fetch_all($run,MYSQLI_ASSOC);
-  $now = time();
-  $expiring_courses = array();
+
    
 ?>
         <div class="main-panel">
@@ -49,7 +44,7 @@
                               <div><i style="font-size: 40px;" class="text-light mdi mdi-format-list-bulleted-type icon-md"></i></div>
                             <hr>
                             <h4 class="mb-2 text-primary font-weight-bold">Your Active Courses</h4>
-                            <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $num_courses = 2 ?> </h2>
+                            <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $numActiveCourses ?> </h2>
                             <hr>
                             <p class=""> Courses you have started</p>
                             <a href="coursesActive.php" class="btn btn-dark">
@@ -64,10 +59,10 @@
                             <div><i style="font-size: 40px;" class="text-light mdi mdi-check icon-md"></i></div>
                           <hr>
                           <h4 class="mb-2 text-primary font-weight-bold">Your Available Courses</h4>
-                          <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $active_courses= 4?></h2>
+                          <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $numCourses?></h2>
                           <hr>
                           <p class=""> Courses ready to be started </p>
-                          <a href="active_courses.php" class="btn btn-dark">
+                          <a href="coursesAvailable.php" class="btn btn-dark">
                           VIEW COURSES
                           </a>
                         </div>
@@ -79,10 +74,10 @@
                             <div><i style="font-size: 40px;" class="text-light mdi mdi-window-close icon-md"></i></div>
                           <hr>
                           <h4 class="mb-2 text-primary font-weight-bold">Your Archived Courses</h4>
-                          <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $archived_courses= 1?></h2>
+                          <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $numArchiveCourses?></h2>
                           <hr>
                           <p class="">Courses that are placed on hold</p>
-                          <a href="archived_courses.php" class="btn btn-dark">
+                          <a href="coursesArchived.php" class="btn btn-dark">
                           VIEW COURSES
                           </a>
                         </div>
@@ -91,13 +86,13 @@
                       <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body text-center">
-                            <div><i style="font-size: 40px;" class="text-light mdi mdi-account icon-md"></i></div>
+                            <div><i style="font-size: 40px;" class="text-light mdi mdi-check icon-md"></i></div>
                           <hr>
                           <h4 class="mb-2 text-primary font-weight-bold">Your Completed Courses</h4>
-                          <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $num_instructors= 4?></h2>
+                          <h2 class="mb-2 text-secondary font-weight-bold"><?php echo $numCompleteCourses ?></h2>
                           <hr>
                           <p class="">Courses you completed successfully</p>
-                          <a href="instructors.php" class="btn btn-dark">
+                          <a href="coursesCompleted.php" class="btn btn-dark">
                           VIEW COURSES
                           </a>
                         </div>

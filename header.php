@@ -7,6 +7,7 @@ if (isset($_SESSION['studID'])) {
     $lName = $_SESSION['lastName'];
     $email = $_SESSION['email'];
     $matric = $_SESSION['matric'];
+    $level = $_SESSION['level'];
     include('config.php');
 } else {
     header('Location: login.php');
@@ -27,8 +28,33 @@ if (empty($user_details)) {
   header('Location: login.php');
 }
 
-$role = $user_details[0]['role'];
 $full_name = $user_details[0]['firstName'] . ' ' . $user_details[0]['lastName'];
+
+
+//available COURSES
+$sql = "SELECT * FROM courses WHERE level = '$level'";
+$rn = mysqli_query($conn,$sql);
+$numCourses = mysqli_num_rows($rn);
+$courses = mysqli_fetch_all($rn,MYSQLI_ASSOC);
+
+//active COURSES
+$sql = "SELECT * FROM activecourses WHERE student = '$id'";
+$rn = mysqli_query($conn,$sql);
+$numActiveCourses = mysqli_num_rows($rn);
+$Activecourses = mysqli_fetch_all($rn,MYSQLI_ASSOC);
+
+//archived COURSES
+$sql = "SELECT * FROM archivecourses WHERE student = '$id'";
+$rn = mysqli_query($conn,$sql);
+$numArchiveCourses = mysqli_num_rows($rn);
+$Archivecourses = mysqli_fetch_all($rn,MYSQLI_ASSOC);
+
+//completed COURSES
+$sql = "SELECT * FROM activecourses WHERE progress = 100";
+$rn = mysqli_query($conn,$sql);
+$numCompleteCourses = mysqli_num_rows($rn);
+$CompleteCourses = mysqli_fetch_all($rn,MYSQLI_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -164,14 +190,14 @@ $full_name = $user_details[0]['firstName'] . ' ' . $user_details[0]['lastName'];
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <?php if ($role === 'Instructor' || $role === 'Admin') { ?>
-              <li class="nav-item">
+            <?php //if ($role === 'Instructor' || $role === 'Admin') { ?>
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="add_course.php">
                   <span class="icon-bg"><i class="mdi mdi-plus menu-icon" style="color:#AE07BD"></i></span>
                   <span class="menu-title">Add Course</span>
                 </a>
-              </li>
-            <?php } ?>
+              </li> -->
+            <?php //} ?>
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#course-view" aria-expanded="false" aria-controls="course-view">
                 <span class="icon-bg"><i class="mdi mdi-format-list-bulleted-type menu-icon" style="color:#AE07BD"></i></span>
@@ -225,7 +251,7 @@ $full_name = $user_details[0]['firstName'] . ' ' . $user_details[0]['lastName'];
                       position: "center",
                       stopOnFocus: true,
                       style: {
-                      background: "#F76400",
+                      background: "#AE07BD",
                       },
                       onClick: function(){}
                       }).showToast();  
@@ -233,6 +259,90 @@ $full_name = $user_details[0]['firstName'] . ' ' . $user_details[0]['lastName'];
                   }
               };
               xmlhttp.open("GET","logout.php",true);
+              xmlhttp.send();
+          }
+
+          function start(course){
+              if (window.XMLHttpRequest) {
+                  xmlhttp = new XMLHttpRequest();
+              } else {
+                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              xmlhttp.onreadystatechange = function() {
+                  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {                             
+                      Toastify({
+                      text: "Starting...",
+                      duration: 1000,
+                      newWindow: true,
+                      close: true,
+                      gravity: "bottom",
+                      position: "center",
+                      stopOnFocus: true,
+                      style: {
+                      background: "#AE07BD",
+                      },
+                      onClick: function(){}
+                      }).showToast();  
+                       setTimeout(function(){window.location = 'view.php?id='+course},1500)
+                  }
+              };
+              xmlhttp.open("GET","startFun.php?course="+course,true);
+              xmlhttp.send();
+          }
+
+          function archive(course){
+              if (window.XMLHttpRequest) {
+                  xmlhttp = new XMLHttpRequest();
+              } else {
+                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              xmlhttp.onreadystatechange = function() {
+                  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {                             
+                      Toastify({
+                      text: "Archiving...",
+                      duration: 1000,
+                      newWindow: true,
+                      close: true,
+                      gravity: "bottom",
+                      position: "center",
+                      stopOnFocus: true,
+                      style: {
+                      background: "#AE07BD",
+                      },
+                      onClick: function(){}
+                      }).showToast();  
+                       setTimeout(function(){window.location = 'single.php?id='+course},1500)
+                  }
+              };
+              xmlhttp.open("GET","archFun.php?course="+course,true);
+              xmlhttp.send();
+          }
+
+          function unarch(course){
+              if (window.XMLHttpRequest) {
+                  xmlhttp = new XMLHttpRequest();
+              } else {
+                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              xmlhttp.onreadystatechange = function() {
+                  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {                             
+                      Toastify({
+                      text: "Archiving...",
+                      duration: 1000,
+                      newWindow: true,
+                      close: true,
+                      gravity: "bottom",
+                      position: "center",
+                      stopOnFocus: true,
+                      style: {
+                      background: "#AE07BD",
+                      },
+                      onClick: function(){}
+                      }).showToast();  
+                       setTimeout(function(){window.location = 'coursesActive.php?id='+course},1500)
+                  }
+              };
+              xmlhttp.open("GET","unArchFun.php?course="+course,true);
               xmlhttp.send();
           }
         </script>

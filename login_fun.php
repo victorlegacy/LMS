@@ -21,6 +21,7 @@ if (mysqli_num_rows($run) > 0) {
         $_SESSION['email'] = $user['email'];
         $_SESSION['firstName'] = $user['firstName'];
         $_SESSION['lastName'] = $user['lastName'];
+        $_SESSION['level'] = $user['level'];
     } else {
         echo 2; // Invalid password
     }
