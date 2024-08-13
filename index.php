@@ -1,7 +1,7 @@
 <?php 
   include('header.php');
   $sql = "SELECT * FROM courses";
-  $num_instructors = mysqli_num_rows(mysqli_query($conn,$sql));
+  $num_courses = mysqli_num_rows(mysqli_query($conn,$sql));
   $run = mysqli_query($conn,$sql);
   $courses = mysqli_fetch_all($run,MYSQLI_ASSOC);
   $now = time();

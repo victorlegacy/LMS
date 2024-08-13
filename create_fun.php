@@ -1,13 +1,15 @@
 <?php
 include('config.php');
 
-$username = mysqli_real_escape_string($conn, $_POST['username']);
+$fname = mysqli_real_escape_string($conn, $_POST['fname']);
+$lname = mysqli_real_escape_string($conn, $_POST['lname']);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
-$phone = mysqli_real_escape_string($conn, $_POST['phone']);
-$role = mysqli_real_escape_string($conn, $_POST['role']);
+$matric = mysqli_real_escape_string($conn, $_POST['matric']);
+$stud = mysqli_real_escape_string($conn, $_POST['stud']);
+$level = mysqli_real_escape_string($conn, $_POST['level']);
 $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-$sql_check = "SELECT * FROM users WHERE username = '$username' OR email = '$email'";
+$sql_check = "SELECT * FROM student WHERE studID = '$stud' OR matric = '$matric'";
 $run_check = mysqli_query($conn, $sql_check);
 
 if (!$run_check) {
@@ -17,8 +19,8 @@ if (!$run_check) {
 if (mysqli_num_rows($run_check) > 0) {
     echo 0;
 } else {
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    $sql_insert = "INSERT INTO users(username, email, phone, role, password) VALUES('$username', '$email', '$phone', '$role', '$hashed_password')";
+ 
+    $sql_insert = "INSERT INTO student(firstName, lastName, email, studID, matric, level, password) VALUES('$fname', '$lname', '$email', '$stud', '$matric', '$level', '$password')";
     if (mysqli_query($conn, $sql_insert)) {
         echo 1;
     } else {

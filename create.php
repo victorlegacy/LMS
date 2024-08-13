@@ -27,7 +27,7 @@
         <div class="container-fluid page-body-wrapper full-page-wrapper">
             <div class="content-wrapper d-flex align-items-center auth">
                 <div class="row flex-grow">
-                    <div class="col-lg-4 mx-auto">
+                    <div class="col-lg-6 mx-auto">
                         <div class="auth-form-light text-left p-5">
                             <div class="brand-logo">
                                 <img src="assets/images/logo-full.png" alt="logo" /><br><br>
@@ -37,18 +37,47 @@
                             <h6 class="font-weight-light">Input Details to Create Account</h6>
                             <p id="error" class="bg-danger text-white"></p>
                             <form id="signupForm" class="pt-3">
+                              <div class="row">
+                                <div class="col-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-lg" id="firstname" name="firstname" required placeholder="First Name">
                                 </div>
+                                </div>
+                                <div class="col-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-lg" id="lastname" name="lastname" required placeholder="Last Name">
                                 </div>
+                                </div>
+                              </div>
+                               <div class="row">
+                                <div class="col-6">
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-lg" id="email" name="email" required placeholder="Student Email">
                                 </div>
+                                </div>
+                                <div class="col-6">
                                 <div class="form-group">
                                     <input type="tel" class="form-control form-control-lg" id="matricno" name="matricno" required placeholder="Matric Number">
                                 </div>
+                                </div>
+                               </div>
+                               <div class="row">
+                               <div class="col-6">
+                               <div class="form-group">
+                                    <input type="text"  class="form-control form-control-lg" id="studID"  name="studID" required placeholder="Student ID">
+                                </div>
+                               </div>
+                               <div class="col-6">
+                               <div class="form-group">
+                                    <input type="number" step="100" class="form-control form-control-lg" id="level" max="500" min="100" name="level" required placeholder="Level">
+                                </div>
+                               </div>
+                             
+                               </div>
+                                
+                               
+                               
+                                
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password">
                                 </div>
@@ -70,14 +99,16 @@
     <script src="assets/js/misc.js"></script>
     <script>
       function create() {
-        var username = document.getElementById("username").value;
+        var fname = document.getElementById("firstname").value;
+        var lname = document.getElementById("lastname").value;
         var email = document.getElementById("email").value;
-        var phone = document.getElementById("phone").value;
-        var role = document.getElementById("role").value;
+        var matric = document.getElementById("matricno").value;
+        var stud = document.getElementById("studID").value;
+        var level = document.getElementById("level").value;
         var password = document.getElementById("password").value;
         
-        if (username === "" || email === "" || phone === "" || role === "" || password === "") {
-          document.getElementById("error").innerHTML = "Please complete all fields";
+        if (fname === "" || lname === "" || email === "" || matric === "" || stud === "" || password === ""|| level === "") {
+          document.getElementById("error").innerHTML = " Please complete all fields";
           return;
         }
         
@@ -106,7 +137,7 @@
         };
         xhr.open("POST", "create_fun.php", true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.send("username=" + encodeURIComponent(username) + "&email=" + encodeURIComponent(email) + "&phone=" + encodeURIComponent(phone) + "&role=" + encodeURIComponent(role) + "&password=" + encodeURIComponent(password));
+        xhr.send("fname=" + encodeURIComponent(fname) + "&lname=" + encodeURIComponent(lname) + "&email=" + encodeURIComponent(email) + "&matric=" + encodeURIComponent(matric) + "&stud=" + encodeURIComponent(stud) + "&level=" + encodeURIComponent(level) + "&password=" + encodeURIComponent(password));
         
         Toastify({
           text: "Creating Account...",
