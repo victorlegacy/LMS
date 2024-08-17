@@ -71,11 +71,11 @@
                         <div class="col-3"><b><?php echo $course['courseCode'] ?></b></div>
                         <div class="col-6"><?php echo $course['courseName'] ?></div>
                         <div class="col-3">
-                          <a href="../courses/<?php echo $course['courseCode'] ?>.pdf" target="_blank" class="btn btn-primary">
+                          <a href="../courses/<?php echo $course['courseCode'] ?>.pdf" download class="btn btn-primary">
                             <i class="mdi mdi-download"></i>
                           </a>
-                          <a href="../courses/<?php echo $course['courseCode'] ?>.pdf" target="_blank" class="btn btn-danger">
-                            <i class="mdi mdi-window-close"></i>
+                          <a onclick="deleteCourse('<?php echo $course['id']?>')" target="_blank" class="btn btn-danger">
+                            <i class="mdi mdi-delete"></i>
                           </a>
                         </div>
                       </div>
@@ -101,6 +101,36 @@
 
                
               updateRangeValue();
+          </script>
+
+          <script>
+            function deleteCourse(courseID){
+              if (window.XMLHttpRequest) {
+                  xmlhttp = new XMLHttpRequest();
+              } else {
+                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              xmlhttp.onreadystatechange = function() {
+                  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {                             
+                      Toastify({
+                      text: "Deleting...",
+                      duration: 1000,
+                      newWindow: true,
+                      close: true,
+                      gravity: "bottom",
+                      position: "center",
+                      stopOnFocus: true,
+                      style: {
+                      background: "#AE07BD",
+                      },
+                      onClick: function(){}
+                      }).showToast();  
+                       setTimeout(function(){window.location = 'addCourse.php'},1500)
+                  }
+              };
+              xmlhttp.open("GET","delete.php?course="+courseID,true);
+              xmlhttp.send();
+            }
           </script>
           <?php 
         include('footer.php')

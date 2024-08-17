@@ -79,7 +79,7 @@
             var response = xhr.responseText;
             if (response == 1) {
               Toastify({
-                text: "Admin Login successfully!",
+                text: "Logged in Successfully!",
                 duration: 2000,
                 newWindow: true,
                 close: true,

@@ -10,7 +10,7 @@
               </div>
               <div class="col-4">
                 <span class="d-flex align-items-center search-popup">
-                  <form class="d-flex align-items-center h-100" action="search.php" method="GET">
+                  <!-- <form class="d-flex align-items-center h-100" action="search.php" method="GET">
                     <div class="input-group">
                       <div class="input-group-prepend bg-white">
                         <i class="input-group-text border-0 mdi mdi-magnify"></i>
@@ -20,7 +20,7 @@
                         <button type="submit" name="submit" class="btn btn-primary">Search</button>
                       </div>
                     </div>
-                  </form>
+                  </form> -->
                 </span>
               </div>
             </div><br><br>

@@ -283,7 +283,7 @@ $CompleteCourses = mysqli_fetch_all($rn,MYSQLI_ASSOC);
                       },
                       onClick: function(){}
                       }).showToast();  
-                       setTimeout(function(){window.location = 'view.php?id='+course},1500)
+                       setTimeout(function(){window.location = 'single.php?id='+course},1500)
                   }
               };
               xmlhttp.open("GET","startFun.php?course="+course,true);
@@ -343,6 +343,35 @@ $CompleteCourses = mysqli_fetch_all($rn,MYSQLI_ASSOC);
                   }
               };
               xmlhttp.open("GET","unArchFun.php?course="+course,true);
+              xmlhttp.send();
+          }
+
+          function updateP(course){
+            var prog = document.getElementById('slider').value;
+              if (window.XMLHttpRequest) {
+                  xmlhttp = new XMLHttpRequest();
+              } else {
+                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              xmlhttp.onreadystatechange = function() {
+                  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {                             
+                      Toastify({
+                      text: "Updated...",
+                      duration: 1000,
+                      newWindow: true,
+                      close: true,
+                      gravity: "bottom",
+                      position: "center",
+                      stopOnFocus: true,
+                      style: {
+                      background: "#AE07BD",
+                      },
+                      onClick: function(){}
+                      }).showToast();  
+                      //  setTimeout(function(){window.location = 'coursesActive.php?id='+course},1500)
+                  }
+              };
+              xmlhttp.open("GET","updateP.php?course="+course+"&&progress="+prog,true);
               xmlhttp.send();
           }
         </script>

@@ -97,13 +97,14 @@ include('header.php');
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Faculty</label>
-                  <input type="text" class="form-control" value="Science and Technology" readonly>
+                  <input type="text" class="form-control" value="School of
+Science and Technology Education" readonly>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Department</label>
-                  <input type="text" class="form-control" value="Computer Science" readonly>
+                  <input type="text" class="form-control" value="Educational Technology" readonly>
                 </div>
               </div>
               <!-- <div class="col-md-4">

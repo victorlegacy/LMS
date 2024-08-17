@@ -8,7 +8,7 @@ include('header.php')
             </div>
               <div class="col-4">
                 <span class="d-flex align-items-center search-popup">
-                  <form class="d-flex align-items-center h-100" action="search.php" method="GET">
+                  <!-- <form class="d-flex align-items-center h-100" action="search.php" method="GET">
                     <div class="input-group">
                       <div class="input-group-prepend bg-white">
                         <i class="input-group-text border-0 mdi mdi-magnify"></i>
@@ -18,7 +18,7 @@ include('header.php')
                         <button type="submit" name="submit" class="btn btn-primary">Search</button>
                       </div>
                     </div>
-                  </form>
+                  </form> -->
                 </span>
               </div>
             </div><br><br>
@@ -42,6 +42,11 @@ include('header.php')
                         $rn = mysqli_query($conn,$sql);
                         $course = mysqli_fetch_all($rn,MYSQLI_ASSOC);
                         $course = $course[0];
+                        
+                        $qry = "SELECT * FROM activecourses WHERE student = '$id' AND course= '$idd'";
+                            $rn = mysqli_query($conn,$qry);
+                            $act = mysqli_fetch_all($rn,MYSQLI_ASSOC);
+                            $prog = $act[0]['progress'];
                         ?>
                       <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin">
                         <div class="card">
@@ -54,9 +59,9 @@ include('header.php')
                                 <?php echo $course['courseName'] ?> 
                               </h5>
                              
-                            <hr>
-                                 <progress max="100" value="<?php echo $course['progress'] ?>"></progress>
-                            <a href="single.php?course=<?php echo $idd ?>" class="btn btn-dark">
+                            <hr> 
+                                 <progress max="100" value="<?php echo $prog ?>"></progress>
+                            <a href="single.php?id=<?php echo $idd ?>" class="btn btn-dark">
                               <i class="mdi mdi-play"></i> CONTINUE
                             </a>
                               <br><br>
