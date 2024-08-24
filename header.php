@@ -55,6 +55,12 @@ $rn = mysqli_query($conn,$sql);
 $numCompleteCourses = mysqli_num_rows($rn);
 $CompleteCourses = mysqli_fetch_all($rn,MYSQLI_ASSOC);
 
+
+//Date Function
+function simpleDate($rawDate) {
+  $date = new DateTime($rawDate);
+  return $date->format('F j, Y, g:i a');
+}
 ?>
 
 <!DOCTYPE html>
@@ -311,7 +317,7 @@ $CompleteCourses = mysqli_fetch_all($rn,MYSQLI_ASSOC);
                       },
                       onClick: function(){}
                       }).showToast();  
-                       setTimeout(function(){window.location = 'single.php?id='+course},1500)
+                       setTimeout(function(){window.location = 'coursesArchived.php'},1500)
                   }
               };
               xmlhttp.open("GET","archFun.php?course="+course,true);

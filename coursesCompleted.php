@@ -37,10 +37,11 @@ include('header.php')
                   <div class="tab-pane fade show active" id="dashboard-1" role="tabpanel" aria-labelledby="dashboard-tab">
                     <div class="row">
                       <?php foreach($CompleteCourses as $course){
-                        $idd = $course['id'];
+                         $idd = $course['course'];
                         $sql = "SELECT * FROM courses WHERE id = '$idd'";
                          $rn = mysqli_query($conn,$sql);
                          $course = mysqli_fetch_all($rn,MYSQLI_ASSOC);
+                         $course = $course[0];
                         ?>
                       <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin">
                         <div class="card">
@@ -56,7 +57,7 @@ include('header.php')
                             </div>
                              
                             <hr>
-                                 <p><?php echo $course['courseDesc'] ?></p> <br>
+                                 <p class="text-start" style="text-align: left ;"><?php echo $course['courseDesc'] ?></p> <br>
                             <a  class="btn btn-link w-100 text-dark">
                               <i class="mdi mdi-check"></i> COMPLETED
                             </a>

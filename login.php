@@ -53,6 +53,9 @@
                   </div>
                 </form>
               </div>
+              <div class="text-center">
+               <a href="admin/"> Switch to Admin</a>
+              </div>
             </div>
           </div>
         </div>

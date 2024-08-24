@@ -71,7 +71,17 @@ include('header.php');
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Password</label>
-                  <input type="password" class="form-control" value="<?php echo $password ?>">
+                  <input type="password" id="password" class="form-control" value="<?php echo $user_details[0]['password'] ?>">
+                  
+                  <div class="mx-4">
+                <input type="checkbox" class="form-check-input" id="togglePassword">
+                <p class="form-check-label" id="togglePasswordText" for="togglePassword">Show Password</p>
+                </div>
+                               
+                     
+                </div>
+                <div>
+                  
                 </div>
               </div>
             </div>
@@ -97,7 +107,7 @@ include('header.php');
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Faculty</label>
-                  <input type="text" class="form-control" value="School of
+                  <input type="text" class="form-control" value="School of 
 Science and Technology Education" readonly>
                 </div>
               </div>
@@ -154,5 +164,17 @@ Science and Technology Education" readonly>
       </div>
     </div> -->
   </div>
+  <script>
+       const passwordField = document.getElementById('password');
+        const togglePasswordButton = document.getElementById('togglePassword');
+        
+        togglePasswordButton.addEventListener('click', function () {
+            // Toggle the type attribute of the password field
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
 
+            // Change the text of the toggle button
+            // togglePasswordText.textContent = type === 'password' ? 'Show' : 'Hide';
+        });
+    </script>
 <?php include('footer.php');?>

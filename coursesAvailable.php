@@ -48,7 +48,7 @@ include('header.php')
                         ?>
                       <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin">
                         <div class="card">
-                          <div class="card-body">
+                          <div class="card-body text-left">
                             
                             <div style="display: flex; align-items: center; flex-direction: row; gap: 20px">
                               <div class="mb-3"><i style="font-size: 40px;" class="text-light mdi mdi-book-open-variant icon-md"></i></div>
@@ -81,7 +81,8 @@ include('header.php')
                           }else{
                                $date = mysqli_fetch_all(mysqli_query($conn,$sql),MYSQLI_ASSOC)[0]['dateAdded'];
                               ?>
-                             Started On <i> <?php echo $date ?></i>
+                             Started On <i>  <i class="mdi mdi-clock"></i>  
+                             <?php echo simpleDate($date) ?></i>
                               <?php } ?>
                             <br>
                             <hr>

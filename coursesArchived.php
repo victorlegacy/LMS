@@ -51,7 +51,7 @@ include('header.php')
                             
                             <div style="display: flex; align-items: center; flex-direction: row; gap: 20px">
                               <div class="mb-3"><i style="font-size: 40px;" class="text-dark mdi mdi-book-open-variant icon-md"></i></div>
-                              <h5 class="text-primary">
+                              <h5 class="text-primary text-left">
                                 <b class="font-weight-bold"> <?php echo $course['courseCode'] ?> </b>
                                   <hr> 
                                   <?php echo $course['courseName'] ?>
@@ -67,7 +67,9 @@ include('header.php')
                             <hr>
                             <span class="text-dark">Archived on </span> 
                             <br>
-                            <b for="" class="text-secondary"><?php echo $courses['dateAdded'] ?></b>
+                            <b for="" class="text-secondary text-left" style="text-align: left;">
+                            <i class="mdi mdi-clock"></i>  
+                            <?php echo simpleDate($courses['dateAdded']) ?></b>
                           </div>
                         </div>
                       </div>
